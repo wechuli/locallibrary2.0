@@ -19,7 +19,7 @@ Functionality
  Technologies
  
         -Express for the back-end
-        -React for the front-end->Implement without using Redux + implement another version with redux
+        -React for the front-end->Implement without using Redux + implement another version with redux-Use React hooks a number of places in the code
         -File upload to s3 or azure storages
         -Host app in cloud -heroku,aws,gcp or azure
         -Take a look at Formik for forms, malter for file uploads

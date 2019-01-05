@@ -6,9 +6,10 @@ const helmet = require("helmet");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const env = require("dotenv").load(); //Use the .env file to load the variables
-const blogRouter = require("./routes/blogRoutes"); //change here
-const userRouter = require("./routes/userRoutes"); //change here
-
+const adminRouter = require("./routes/adminRoutes"); //change here
+const bookRouter = require("./routes/bookRoutes"); //change here
+const authRouter = require("./routes/authRoutes"); //change here
+const usersRouter = require("./routes/usersRoutes"); //change here
 
 //Instantiate the express instance
 
@@ -21,9 +22,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan("dev"));
 app.use(passport.initialize());
-
-
-
 
 //Connect to Mongo DB
 mongoose.Promise = global.Promise; //Make the global promise equal to the mongoose promise
@@ -43,16 +41,13 @@ mongoose
   .then(() => console.log("Connection to MongoDB Successful"))
   .catch(err => console.error(err));
 
-  
-
-
 //Routes
 
-app.use("/users", userRouter); //change here
+app.use("/users", usersRouter);
 
-app.use("/blogs", blogRouter); //change here
-
-
+app.use("/auth", authRouter);
+app.use("/book", bookRouter);
+app.use("/admin", adminRouter);
 
 //Error 404 handling
 
