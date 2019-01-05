@@ -24,5 +24,6 @@ Functionality
         -Host app in cloud -heroku,aws,gcp or azure
         -Take a look at Formik for forms, malter for file uploads
         -Bootstrap or Materialize or Semantic UI for the front-end
+        -MongoDB for the database
       
      
