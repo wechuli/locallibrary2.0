@@ -22,6 +22,7 @@ const bookSchema = new Schema({
     type: String,
     required: true
   },
+  language: String,
   genre: [
     {
       type: Schema.Types.ObjectId,

@@ -10,6 +10,7 @@ const authorSchema = new Schema({
   last_name: String,
   date_of_birth: Date,
   date_of_death: Date,
+  bio: String,
   books: [
     {
       type: Schema.Types.ObjectId,
