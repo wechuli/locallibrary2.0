@@ -44,13 +44,13 @@ const userSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "review"
     }
-  ], 
+  ],
   book_instances_borrowed: [
     {
       type: Schema.Types.ObjectId,
       ref: "bookinstance"
     }
-  ], 
+  ],
   dob: Date,
   is_admin: {
     type: Boolean,
@@ -66,6 +66,7 @@ userSchema.pre("save", async function(next) {
       next();
     }
     if (this.isNew) {
+      //only hash the password if this is a new account, otherwise every time you save the instance it will hash the password
       //Genrate a salt
       const salt = await bcrypt.genSalt(10);
       //Generate password hash  salt+password
@@ -87,7 +88,7 @@ userSchema.methods.isValidPassword = async function(newPassword) {
   try {
     return await bcrypt.compare(newPassword, this.local.password);
   } catch (error) {
-    throw new Error();
+    throw new Error(error);
   }
 };
 
