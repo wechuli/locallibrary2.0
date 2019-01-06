@@ -37,10 +37,10 @@ module.exports = {
     try {
       console.log(req.params);
       const { bookId } = req.params;
-      const book = await Book.find(bookId);
+      const book = await Book.findOne({ _id: bookId });
       console.log(book);
       console.log("but not here");
-      if (book !== null) {
+      if (book) {
         const newInstance = new BookInstance(req.body);
         newInstance.book = bookId;
         await newInstance.save();
