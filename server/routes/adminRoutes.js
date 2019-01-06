@@ -6,10 +6,10 @@ const router = express.Router();
 router.get("/allusers", adminControllers.getAllUsers); //get all users
 router.post("/createbook", adminControllers.createBook); //create abook
 
-router.post("/createbookinstance", adminControllers.createInstance); //create book instance
+router.post("/createbookinstance/:bookId", adminControllers.createInstance); //create book instance
 router.post("/createauthor", adminControllers.createAuthor); //create an author
 router
-  .route("/editbook") //edit an author
+  .route("/editbook/:bookId") //edit an author
   .put(adminControllers.editBookPut)
   .patch(adminControllers.editBookPatch);
 router

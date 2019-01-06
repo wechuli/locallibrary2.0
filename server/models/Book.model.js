@@ -23,10 +23,10 @@ const bookSchema = new Schema({
     required: true
   },
   language: String,
-  genre: [
+  category: [
     {
       type: Schema.Types.ObjectId,
-      ref: "genre"
+      ref: "category"
     }
   ],
   instances: [

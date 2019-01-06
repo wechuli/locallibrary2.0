@@ -11,6 +11,7 @@ const bookInstanceSchema = new Schema({
   imprint: String,
   status: {
     type: String,
+    default:'available',
     enum: ["available", "borrowed", "reserved"],
     required: true
   },
