@@ -1,14 +1,15 @@
-import React, { Component } from "react";
-import "./App.css";
+import React, { useState } from "react";
+import Header from "./components/layout/Header";
+import {Route} from 'react-router-dom';
+import UserDashboard from "./components/dashboard/UserDashboard";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <p>This is the home page</p>
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <React.Fragment>
+      <Header />
+      <UserDashboard/>
+    </React.Fragment>
+  );
+};
 
 export default App;
