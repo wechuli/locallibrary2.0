@@ -6,7 +6,13 @@ const express = require("express"),
   bodyParser = require("body-parser"),
   cookieParser = require("cookie-parser"),
   passport = require("passport"),
-  path = require("path");
+  path = require("path"),
+  authorRoutes = require('./routes/authorRoutes'),
+  bookInstanceRoutes = require('./routes/bookInstanceRoutes'),
+  bookRoutes = require('./routes/bookRoutes');
+  genreRoutes = require('./routes/genreRoutes');
+  reviewsRoutes = require('./routes/reviewsRoutes');
+  userRoutes = require('./routes/userRoutes');
 
 const env = require("dotenv").config({
   path: path.join(process.env.PWD, ".env")
@@ -51,6 +57,11 @@ mongoose
 //   )
 //   .then(() => console.log("Connection to CosmosDB successful"))
 //   .catch(err => console.error(err));
+
+
+
+//Routes
+
 
 const PORT = 8500;
 
