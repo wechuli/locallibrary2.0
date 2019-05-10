@@ -8,8 +8,7 @@ module.exports = {
     name = name.toLowerCase();
     //Check if the genre exists
     try {
-      const existingGenre = await Genre.findOne({ name });
-      console.log(existingGenre);
+      const existingGenre = await Genre.findOne({ name });     
       if (existingGenre) {
         return res.status(406).json({ error: "Genre already exists" });
       }
