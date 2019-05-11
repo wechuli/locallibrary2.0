@@ -6,7 +6,7 @@ const BookInstanceSchema = new Schema({
   book: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: "Book"
+    ref: "book"
   },
   imprint: {
     type: String,
@@ -24,9 +24,9 @@ const BookInstanceSchema = new Schema({
   },
   borrowedby: {
     type: Schema.Types.ObjectId,
-    ref: "User",
+    ref: "user",
     required: false
   }
 });
 
-module.exports = mongoose.model("Bookinstance", BookInstanceSchema);
+module.exports = mongoose.model("bookinstance", BookInstanceSchema);

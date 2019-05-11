@@ -30,10 +30,10 @@ const UserSchema = new Schema({
   booksborrowed: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Bookinstance",
+      ref: "bookinstance",
       required: false
     }
   ]
 });
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("user", UserSchema);

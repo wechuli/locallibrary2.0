@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const ReviewSchema = new Schema({
   book: {
     type: Schema.Types.ObjectId,
-    ref: "Book",
+    ref: "book",
     required: true
   },
   content: {
@@ -21,9 +21,9 @@ const ReviewSchema = new Schema({
   },
   author: {
     type: Schema.Types.ObjectId,
-    ref: "User",
+    ref: "user",
     required: true
   }
 });
 
-module.exports = mongoose.model("Review", ReviewSchema);
+module.exports = mongoose.model("review", ReviewSchema);
