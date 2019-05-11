@@ -1,4 +1,6 @@
-const Joi = require("@hapi/joi");
+const BaseJoi = require("@hapi/joi");
+const DateExtension = require("@hapi/joi-date");
+const Joi = BaseJoi.extend(DateExtension);
 
 module.exports = {
   validateParams: (schema, name) => {
@@ -33,6 +35,28 @@ module.exports = {
       param: Joi.string()
         .regex(/^[0-9a-fA-F]{24}$/)
         .required()
+    }),
+    authorCreateSchema: Joi.object().keys({
+      firstname: Joi.string()
+        .max(50)
+        .required(),
+      lastname: Joi.string()
+        .max(50)
+        .required(),
+      date_of_birth: Joi.date()
+        .format("YYYY-MM-DD")
+        .required(),
+      date_of_death: Joi.date().format("YYYY-MM-DD"),
+      bio: Joi.string()
+        .max(2000)
+        .required()
+    }),
+    authorEditSchema: Joi.object().keys({
+      firstname: Joi.string().max(50),
+      lastname: Joi.string().max(50),
+      date_of_birth: Joi.date().format("YYYY-MM-DD"),
+      date_of_death: Joi.date().format("YYYY-MM-DD"),
+      bio: Joi.string().max(2000)
     })
   }
 };

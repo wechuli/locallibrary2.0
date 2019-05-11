@@ -17,7 +17,8 @@ const AuthorSchema = new Schema({
   date_of_death: Date,
   bio: {
     type: String,
-    maxlength: 500
+    maxlength: 500,
+    required: true
   },
   books: [
     {

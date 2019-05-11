@@ -12,6 +12,13 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-6.2.1.tgz#d3a66329159af879bfdf0b0cff2229c43c5a3451"
   integrity sha512-+ryw4GU9pjr1uT6lBuErHJg3NYqzwJTvZ75nKuJijEzpd00Uqi6oiawTGDDf5Hl0zWmI7qHfOtaqB0kpQZJQzA==
 
+"@hapi/joi-date@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@hapi/joi-date/-/joi-date-1.3.0.tgz#7d9b0b229fd64404ae249f6e2b9c531e2df18b2f"
+  integrity sha512-FCNfl/R/n3MSXODOzFiWWKgkqTQdWBFNMqXbMvFWqLkn8vIHBGMMEto7hOdLQmxcS2s6WoiUiPKFavtrRPdUOQ==
+  dependencies:
+    moment "2.x.x"
+
 "@hapi/joi@^15.0.1":
   version "15.0.1"
   resolved "https://registry.yarnpkg.com/@hapi/joi/-/joi-15.0.1.tgz#dec64ff87555954f925220a9c5db062ba34493fc"
@@ -686,7 +693,7 @@ mimic-fn@^1.0.0:
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.2.0.tgz#820c86a39334640e99516928bd03fca88057d022"
   integrity sha512-jf84uxzwiuiIVKiOLpfYk7N46TSy8ubTonmneY9vrpHNAnp0QBt2BxWV9dO3/j+BoVAb+a5G6YDPW3M5HOdMWQ==
 
-moment@^2.24.0:
+moment@2.x.x, moment@^2.24.0:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
