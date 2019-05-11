@@ -9,10 +9,10 @@ const express = require("express"),
   path = require("path"),
   authorRoutes = require("./routes/authorRoutes"),
   bookInstanceRoutes = require("./routes/bookInstanceRoutes"),
-  bookRoutes = require("./routes/bookRoutes");
-genreRoutes = require("./routes/genreRoutes");
-reviewsRoutes = require("./routes/reviewsRoutes");
-userRoutes = require("./routes/userRoutes");
+  bookRoutes = require("./routes/bookRoutes"),
+  genreRoutes = require("./routes/genreRoutes"),
+  reviewsRoutes = require("./routes/reviewsRoutes"),
+  userRoutes = require("./routes/userRoutes");
 
 const env = require("dotenv").config({
   path: path.join(process.env.PWD, ".env")
