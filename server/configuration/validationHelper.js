@@ -71,6 +71,13 @@ module.exports = {
       isbn: Joi.string()
         .required()
         .max(100)
+    }),
+    bookEditSchema: Joi.object().keys({
+      title: Joi.string().max(100),
+      author: Joi.string().regex(/^[0-9a-fA-F]{24}$/),
+      summary: Joi.string().max(2000),
+      isbn: Joi.string()
+      .max(100)
     })
   }
 };

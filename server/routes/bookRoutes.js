@@ -10,7 +10,8 @@ const {
   getAllBooks,
   getSingleBook,
   deleteBook,
-  editBook
+  editBook,
+  addGenreToBook
 } = require("../controllers/bookController");
 
 const router = express.Router();
@@ -29,5 +30,12 @@ router.get("/all", getAllBooks);
 
 //get a single book
 router.get("/single/:bookId", getSingleBook);
+
+//add book genre
+router.post(
+  "/addgenre/:bookId",
+  validateParams(schemas.idSchema, "bookId"),
+  addGenreToBook
+);
 
 module.exports = router;

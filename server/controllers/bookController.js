@@ -57,5 +57,13 @@ module.exports = {
     } catch (error) {
       res.status(500).json(error);
     }
+  },
+
+  //add a genre to a book
+  async addGenreToBook(req, res) {
+    try {
+    } catch (error) {
+      res.status(500).json(error);
+    }
   }
 };
