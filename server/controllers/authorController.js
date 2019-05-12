@@ -63,7 +63,9 @@ module.exports = {
     const { authorId } = req.params;
 
     try {
-      const author = await Author.findById(authorId);
+      const author = await Author.findById(authorId)
+        .populate("books")
+        .exec();
       if (!author) {
         return res.status(404).json({ error: "No author found with that Id" });
       }

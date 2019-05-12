@@ -16,7 +16,7 @@ const BookSchema = new Schema({
   ],
   summary: {
     type: String,
-    maxlength: 500,
+    maxlength: 2000,
     required: true
   },
   isbn: {

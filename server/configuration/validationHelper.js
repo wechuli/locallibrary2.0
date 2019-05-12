@@ -57,6 +57,20 @@ module.exports = {
       date_of_birth: Joi.date().format("YYYY-MM-DD"),
       date_of_death: Joi.date().format("YYYY-MM-DD"),
       bio: Joi.string().max(2000)
+    }),
+    bookCreateSchema: Joi.object().keys({
+      title: Joi.string()
+        .max(100)
+        .required(),
+      author: Joi.string()
+        .regex(/^[0-9a-fA-F]{24}$/)
+        .required(),
+      summary: Joi.string()
+        .max(2000)
+        .required(),
+      isbn: Joi.string()
+        .required()
+        .max(100)
     })
   }
 };
