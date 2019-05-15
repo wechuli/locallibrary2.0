@@ -36,6 +36,9 @@ module.exports = {
   async deleteAuthor(req, res) {
     const { authorId } = req.params;
     try {
+
+      //Only delete an author if they have no book in the library, otherwise, refuse the request -not implemented
+      
       const deletedAuthor = await Author.findByIdAndDelete(authorId);
       if (!deletedAuthor) {
         return res.status(404).json({ error: "No author found with that Id" });
