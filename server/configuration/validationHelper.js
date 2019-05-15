@@ -28,7 +28,7 @@ module.exports = {
   schemas: {
     genresSchema: Joi.object().keys({
       name: Joi.string()
-        .max(5)
+        .max(50)
         .required()
     }),
     idSchema: Joi.object().keys({
