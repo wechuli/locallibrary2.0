@@ -4,7 +4,7 @@ const Author = require("../models/Author.model");
 module.exports = {
   //create a single book in the library
   async createBook(req, res) {
-    let { title, author, summary, isbn } = req.body;
+    let { title, author, summary, isbn, genres } = req.body;
 
     try {
       //try to find the author specified in the body
@@ -12,6 +12,7 @@ module.exports = {
       if (!existingAuthor) {
         return res.status(404).json({ error: "Invalid Author Id" });
       }
+      
       const newBook = new Book({
         title,
         author,
