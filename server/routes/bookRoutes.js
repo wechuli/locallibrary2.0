@@ -43,6 +43,7 @@ router.get(
 router.post(
   "/addgenre/:bookId",
   validateParams(schemas.idSchema, "bookId"),
+  validateBody(schemas.genresSchema),
   addGenreToBook
 );
 

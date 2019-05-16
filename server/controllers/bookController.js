@@ -113,7 +113,33 @@ module.exports = {
 
   //add a genre to a book
   async addGenreToBook(req, res) {
+    const { bookId } = req.params;
+    let { name } = req.body;
+    name = name.toLowerCase();
+
     try {
+      const book = await Book.findById(bookId);
+      if (!book) {
+        return res.status(201).json({ message: "New genre added to book" });
+      }
+
+      //Try to find if this genre already exists in our Genre collection
+      let existingGenre = await Genre.findOne({ name });
+      if (!existingGenre) {
+        existingGenre = new Genre({ name });
+        await existingGenre.save();
+      }
+
+      //add the genre to the book
+      book.genre.push(existingGenre);
+      await book.save();
+
+      res
+        .status(201)
+        .json({
+          message: "Genre successfully added to the book",
+          existingGenre
+        });
     } catch (error) {
       res.status(500).json(error);
     }
