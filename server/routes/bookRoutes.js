@@ -23,13 +23,21 @@ router.post("/create", validateBody(schemas.bookCreateSchema), createBook);
 router.patch("/edit/:bookId", editBook);
 
 //delete a book
-router.delete("/delete/:bookId", deleteBook);
+router.delete(
+  "/delete/:bookId",
+  validateParams(schemas.idSchema, "bookId"),
+  deleteBook
+);
 
 //get all books
 router.get("/all", getAllBooks);
 
 //get a single book
-router.get("/single/:bookId", getSingleBook);
+router.get(
+  "/single/:bookId",
+  validateParams(schemas.idSchema, "bookId"),
+  getSingleBook
+);
 
 //add book genre
 router.post(

@@ -44,7 +44,7 @@ module.exports = {
         isbn,
         genre: genreObjects
       });
-      
+
       await newBook.save();
       existingAuthor.books.push(newBook);
       await existingAuthor.save();
@@ -64,7 +64,20 @@ module.exports = {
 
   //delete a single book
   async deleteBook(req, res) {
+    const { bookId } = req.params;
     try {
+      const deletedBook = await Book.findOneAndDelete({ _id: bookId });
+      if (!deletedBook) {
+        return res.status(404).json({ error: "Book unaivalable" });
+      }
+
+      //Validation to implement this logic
+
+      //1. You cannot delete a book that has instances in the library, you first need to delete all the book's instance
+      //2. You need to delete this object under the Author's book collection so that a query to populate will not result in an empty value
+      res
+        .status(200)
+        .json({ message: "Book Successfully removed", deleteBook });
     } catch (error) {
       res.status(500).json(error);
     }
@@ -73,7 +86,9 @@ module.exports = {
   //get all books
   async getAllBooks(req, res) {
     try {
-      const allBooks = await Book.find({});
+      const allBooks = await Book.find({})
+        .populate("author")
+        .exec();
       res.status(200).json(allBooks);
     } catch (error) {
       res.status(500).json(error);
@@ -82,7 +97,15 @@ module.exports = {
 
   //get details of a single book
   async getSingleBook(req, res) {
+    const { bookId } = req.body;
     try {
+      const book = await Book.findById(bookId)
+        .populate("author")
+        .exec();
+      if (!book) {
+        return res.status(404).json({ error: "Book unavailable" });
+      }
+      res.status(200).json(book);
     } catch (error) {
       res.status(500).json(error);
     }
