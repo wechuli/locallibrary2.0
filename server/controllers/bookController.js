@@ -56,7 +56,15 @@ module.exports = {
 
   //edit a single book in the library
   async editBook(req, res) {
+    const { bookId } = req.params;
     try {
+      const book = await Book.findOneAndUpdate({ _id: bookId }, req.body, {
+        new: true
+      });
+      if (!book) {
+        return res.status(404).json({ message: "Book Unavailable" });
+      }
+      res.status(200).json({ message: "Book succesffully modiefied", book });
     } catch (error) {
       res.status(500).json(error);
     }
@@ -134,12 +142,10 @@ module.exports = {
       book.genre.push(existingGenre);
       await book.save();
 
-      res
-        .status(201)
-        .json({
-          message: "Genre successfully added to the book",
-          existingGenre
-        });
+      res.status(201).json({
+        message: "Genre successfully added to the book",
+        existingGenre
+      });
     } catch (error) {
       res.status(500).json(error);
     }

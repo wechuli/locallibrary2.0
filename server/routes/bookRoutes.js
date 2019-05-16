@@ -20,7 +20,12 @@ const router = express.Router();
 router.post("/create", validateBody(schemas.bookCreateSchema), createBook);
 
 //edit a single book
-router.patch("/edit/:bookId", editBook);
+router.patch(
+  "/edit/:bookId",
+  validateParams(schemas.idSchema, "bookId"),
+  validateBody(schemas.bookEditSchema),
+  editBook
+);
 
 //delete a book
 router.delete(
