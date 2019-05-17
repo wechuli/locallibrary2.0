@@ -31,6 +31,7 @@ module.exports = {
           await newGenre.save();
           return newGenre;
         }
+  
       });
       // const newBook;
       await Promise.all(genreObjects).then(completed => {
