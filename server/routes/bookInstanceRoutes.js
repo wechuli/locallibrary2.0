@@ -1,5 +1,13 @@
 const express = require("express");
-const {} = require("../controllers/bookInstanceController");
+const {
+  getAllBookInstances,
+  addBookInstanceToBook,
+  getSingleBookInstance,
+  deleteBookInstance,
+  borrowBook,
+  approveBookInstanceBorrow,
+  getAllBorrowRequests
+} = require("../controllers/bookInstanceController");
 
 const router = express.Router();
 
@@ -10,7 +18,7 @@ router.get("/all", getAllBookInstances);
 router.post("/add/:bookId", addBookInstanceToBook);
 
 // get a specific book instance
-router.get("/single/:bookInstance", getSingleBookINstance);
+router.get("/single/:bookInstance", getSingleBookInstance);
 
 // delete a book instance for a book
 
